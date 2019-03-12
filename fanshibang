@@ -62,14 +62,14 @@ int ListDelete(SeqList *L, int i)
     int j;
     if((i < 1)||( i > L -> last))
     {
-        return ERROR;  
+        return 0;  
     }
     for(j = i; j <= L -> last; j++)
     {
         L ->data[j - 1] = L ->data[j];
     }
     --L ->last;
-    return OK;
+    return 1;
 }
     
 int main()
