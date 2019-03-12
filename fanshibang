@@ -57,6 +57,21 @@ void print_seqlist(SeqList *L)
     printf("%f\n", L->data[L->last]);
 }
 
+int ListDelete(SeqList *L, int i)
+{
+    int j;
+    if((i < 1)||( i > L -> last))
+    {
+        return ERROR;  
+    }
+    for(j = i; j <= L -> last; j++)
+    {
+        L ->data[j - 1] = L ->data[j];
+    }
+    --L ->last;
+    return OK;
+}
+    
 int main()
 {
     int i = 0;
@@ -70,7 +85,7 @@ int main()
     
     print_seqlist(L);
   
-    insert_seqlist(L, 5, 222);
+    ListDelete(L, 5);
     print_seqlist(L);
 
     return 1;
